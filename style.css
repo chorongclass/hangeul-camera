@@ -1,0 +1,62 @@
+body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background-color: #FFF9E6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 { color: #FF6B6B; font-size: 24px; }
+
+.camera-section {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#video { width: 100%; height: 100%; object-fit: cover; }
+
+.overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255,255,255,0.8);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+.spinner {
+    width: 40px; height: 40px;
+    border: 4px solid #f3f3f3; border-top: 4px solid #FF6B6B;
+    border-radius: 50%; animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.btn-main {
+    width: 100%; padding: 20px; font-size: 22px; font-weight: bold;
+    background-color: #FF6B6B; color: white; border: none;
+    border-radius: 15px; cursor: pointer; margin-bottom: 10px;
+}
+
+.btn-sub {
+    padding: 10px 20px; background: #FFD93D; border: none;
+    border-radius: 10px; font-weight: bold; cursor: pointer;
+}
+
+#recognizedText { font-size: 30px; font-weight: 800; color: #333; margin: 15px 0; }
+
+.status-msg { font-size: 14px; color: #888; }
