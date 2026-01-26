@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>소리나는 한글 카메라</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+</head>
+<body>
+    <div class="container">
+        <h1>한글 소리 카메라 📸</h1>
+        
+        <div class="camera-section">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div id="loadingOverlay" class="overlay" style="display:none;">
+                <div class="spinner"></div>
+                <p>글자를 읽는 중...</p>
+            </div>
+        </div>
+
+        <button id="captureButton" class="btn-main">찰칵! 소리 듣기</button>
+
+        <div class="result-section">
+            <p id="recognizedText"></p>
+            <button id="reSpeak" class="btn-sub" style="display:none;">🔊 다시 듣기</button>
+        </div>
+        
+        <p id="status" class="status-msg">카메라 허용을 눌러주세요.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
