@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaemi 선생님의 한글 숨바꼭질</title>
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 600px;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(145deg, #ffde59, #ffbd59);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .box:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 7px 7px 20px rgba(0,0,0,0.15);
+        }
+
+        /* 물음표 디자인 */
+        .cover {
+            font-size: 50px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* 숨겨진 글자 디자인 */
+        .letter {
+            position: absolute;
+            font-size: 60px;
+            font-weight: bold;
+            color: #ff5722;
+            display: none;
+        }
+
+        /* 클릭 시 'active' 클래스가 붙었을 때의 동작 */
+        .box.active {
+            background: white;
+            border: 4px solid #ffde59;
+        }
+
+        .box.active .cover {
+            display: none;
+        }
+
+        .box.active .letter {
+            display: block;
+            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* 글자가 뿅! 하고 나타나는 애니메이션 */
+        @keyframes popUp {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .reset-btn {
+            margin-top: 40px;
+            padding: 10px 25px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .reset-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>어떤 글자가 숨어있을까?</h1>
+
+    <div class="container">
+        <div class="box" onclick="reveal(this)">
+            <div class="cover">?</div>
+            <div class="letter">가</div>
+        </div>
+        <div class="box" onclick="reveal(this)">
+            <div class="cover">?</div>
+            <div class="letter">나</div>
+        </div>
+        <div class="box" onclick="reveal(this)">
+            <div class="cover">?</div>
+            <div class="letter">다</div>
+        </div>
+        <div class="box" onclick="reveal(this)">
+            <div class="cover">?</div>
+            <div class="letter">라</div>
+        </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetGame()">다시 놀기</button>
+
+    <script>
+        function reveal(element) {
+            if (element.classList.contains('active')) return;
+            
+            element.classList.add('active');
+            
+            // 나중에 여기에 소리 파일을 넣으실 수 있어요!
+            // new Audio('pop.mp3').play();
+        }
+
+        function resetGame() {
+            const boxes = document.querySelectorAll('.box');
+            boxes.forEach(box => {
+                box.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>
